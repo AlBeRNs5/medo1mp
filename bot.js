@@ -1,12 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '-'
+const prefix = '*'
  
  
  
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`By medo1mp `,"https://www.twitch.tv/dggamingbot")
+client.user.setGame(`NT `,"https://www.twitch.tv/dggamingbot")
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -32,7 +32,7 @@ client.user.setGame(`By medo1mp `,"https://www.twitch.tv/dggamingbot")
  
 
  client.on('message', message => {
-    const prefix = "-";
+    const prefix = "^";
       if (message.author.kick) return;
       if (!message.content.startsWith(prefix)) return;
      
@@ -109,7 +109,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-    var prefix = "-";
+    var prefix = "*";
    
         if (message.author.id === client.user.id) return;
         if (message.guild) {
@@ -188,7 +188,7 @@ message.channel.sendEmbed(id);
 
 client.on('message', message => {
                  if (!message.channel.guild) return;
-         if(message.content =='-members')
+         if(message.content =='*members')
          var kayan = new Discord.RichEmbed()
          .setThumbnail(message.author.avatarURL)
          .setFooter(message.author.username, message.author.avatarURL)
@@ -208,7 +208,8 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-    if(message.content.includes('discord.gg')){                                        
+    if(message.content.includes('discord.gg')){
+                                            if(!message.channel.guild) return message.reply('** advertising me on DM ?    **');
         if (!message.member.hasPermissions(['ADMINISTRATOR'])){
         message.delete()
     return message.reply(`** No Invite Links  !**`)
@@ -420,7 +421,7 @@ client.on('message',async message => {
 });
 
   client.on('message', msg => {
-  if(msg.content === '-hide') {
+  if(msg.content === '*hide') {
     msg.guild.channels.forEach(c => {
       c.overwritePermissions(msg.guild.id, {
         SEND_MESSAGES: false,
@@ -432,7 +433,7 @@ client.on('message',async message => {
 })   
 
 client.on('message', msg => {
-  if(msg.content === '-unhide') {
+  if(msg.content === '*unhide') {
     msg.guild.channels.forEach(c => {
       c.overwritePermissions(msg.guild.id, {
         SEND_MESSAGES: true,
@@ -454,7 +455,7 @@ client.on('message', message => {
 });
 
 client.on('message',async message => {
-  if(message.content === '-unbanall') {
+  if(message.content === '*unbanall') {
     var user = message.mentions.users.first();
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('❌|**`ADMINISTRATOR`لا توجد لديك صلاحية `**');
     if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
@@ -476,7 +477,7 @@ client.on('message',async message => {
   });
 
 client.on("message", message => {
-            if(message.content.startsWith("-app")) { /// Mal , Codes //// O҉Z҉X҉ 
+            if(message.content.startsWith("*app")) { /// Mal , Codes //// O҉Z҉X҉ 
         if(!message.channel.guild) return;////////غير البرفكس
                 if(message.author.bot) return;
         let channel = message.guild.channels.find("name", "التقديمات")//////dont change any thing
@@ -553,7 +554,7 @@ client.on("message", message => {
 }
         });
         client.on('message', message=>{
-            if(message.content.startsWith("-room1")) {
+            if(message.content.startsWith("*room1")) {
             if(!message.channel.guild) return;
                 if(message.author.bot) return;
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
@@ -572,7 +573,7 @@ client.on("message", message => {
   let mySupport = message.guild.roles.find('name',role);
   if(message.content.startsWith("*acc")) {
     let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
-    if(!acRoom) return message.reply("-room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
+    if(!acRoom) return message.reply("^room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
     if(acRoom) {
     if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
     if(!mention) return message.reply('منشن شخص');
@@ -591,7 +592,7 @@ client.on('message',async message => {
   if(message.content.startsWith("*de")) {
   if(!message.channel.guild) return;
   let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
-  if(!acRoom) return message.reply("-room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
+  if(!acRoom) return message.reply("*room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
   if(!mention) return message.reply("منشن شخص");
  
@@ -599,7 +600,7 @@ client.on('message',async message => {
   }
 });
           client.on('message', message=>{
-            if(message.content.startsWith("-room2")) {
+            if(message.content.startsWith("*room2")) {
          if(!message.channel.guild) return;
                 if(message.author.bot) return;
                 if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
@@ -617,7 +618,7 @@ client.on('message',async message => {
 client.on('message',async message => {
     const moment = require('moment');
 const ms = require('ms')
-    var prefix = '-' //بريفكس البوت
+    var prefix = '*' //بريفكس البوت
   var time = moment().format('Do MMMM YYYY , hh:mm');
   var room;
   var title;
@@ -735,7 +736,7 @@ client.on('message' , message => {
 
 
 	client.on("message", msg => {
-  if(msg.content === '-' + "id") {
+  if(msg.content === '*' + "id") {
       const embed = new Discord.RichEmbed();
   embed.addField("🔱| اسم الحساب :", `${msg.author.username}#${msg.author.discriminator}`, true)
           .addField("🆔| الاي دي :", `${msg.author.id}`, true)
@@ -753,7 +754,7 @@ client.on('message' , message => {
 })
 
 client.on('message', message => {
-    if (message.content === "-server") {
+    if (message.content === "*server") {
         if (!message.channel.guild) return
         var verificationLevel = message.guild.verificationLevel;
         const verificationLevels = ['None','Low','Meduim','High','Extreme'];
@@ -779,7 +780,7 @@ client.on('message', message => {
     }); 
 
 client.on('message', message => {
-            if (message.content.startsWith("-rules")) {
+            if (message.content.startsWith("*rules")) {
      let embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .addField('     اولا ' ,' ممنوع السب ')
@@ -798,7 +799,7 @@ client.on('message', message => {
 
 const hero = new Discord.Client({disableEveryone: true, maxMessagesCache: 1});
 const as = require('array-sort');
-const config = { prefix: "-", token: "NTQyMTI1ODM5NDQyMTE2NjI4.Dzpj1w.qs8hc9wQKAiz0bnun9l5q7vnUBI" };
+const config = { prefix: "*", token: "NTQyMTI1ODM5NDQyMTE2NjI4.Dzpj1w.qs8hc9wQKAiz0bnun9l5q7vnUBI" };
 const tpoints = {};
 const vpoints = {};
 hero.config = config;
@@ -878,7 +879,7 @@ hero.on('message',async message => {
 
         message.channel.send(` ***هل أنت متأكد من إغلآق التذكرة ؟, Type *close to close the ticket., لديك 10 ثوآني للتأكيد .***`)
             .then((m) => {
-                message.channel.awaitMessages(response => response.content === '-close', {
+                message.channel.awaitMessages(response => response.content === '*close', {
                         max: 1,
                         time: 10000,
                         errors: ['time'],
@@ -896,8 +897,8 @@ hero.on('message',async message => {
 
 });
 
-const adminprefix = "-medo";
-const devs = ['395984254519214092'];
+const adminprefix = "*vip";
+const devs = ['329364418938798081'];
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
     if (!devs.includes(message.author.id)) return;
@@ -923,7 +924,7 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 });
 
 client.on('message', message => {
-    if (message.content === ('-bot')) {
+    if (message.content === ('*bot')) {
     message.channel.send({
         embed: new Discord.RichEmbed()
             .setAuthor(client.user.username,client.user.avatarURL)
@@ -947,30 +948,30 @@ client.on("message", message => {
       .setColor("#111111")
       .setDescription(`
 **
--bc 
--user
--avatar
--bcc 
--kick 
+*bc 
+*user
+*avatar
+*bcc 
+*kick 
 inviteserver  
--cm 
--om  
--mute  
--unmute 
--clear + Number
--hide
--unhide
--date
--unbanall 
--ban 
--app 
--gstart 
--server 
--rules 
--new  
--close  
--top 
--bot
+*cm 
+*om  
+*mute  
+*unmute 
+*clear + Number
+*hide
+*unhide
+*date
+*unbanall 
+*ban 
+*app 
+*gstart 
+*server 
+*rules 
+*new  
+*close  
+*top 
+*bot
 **
  `)
    message.channel.sendEmbed(embed)
@@ -1226,19 +1227,19 @@ function play(guild, song) {
 }
 
 client.on('message', message => {
-    if (message.content === '-helpmusic') {
+    if (message.content === '*helpmusic') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**أوامر الميوزك...**')
         .setDescription('**برفكس البوت (*)**')
-        .addField('-play', 'لتشغيل اغنية')
-        .addField('-join', 'دخول رومك الصوتي')
-        .addField('-disconnect', 'الخروج من رومك الصوتي')
-        .addField('-skip', 'تخطي الأغنية')
-        .addField('-pause', 'ايقاف الاغنية مؤقتا')
-        .addField('-resume', 'تكملة الاغنية')
-        .addField('-queue', 'اظهار قائمة التشغيل')
-        .addField('-np', 'اظهار الاغنية اللي انت مشغلها حاليا')
-        .setFooter('-help لاظهار الاوامر العامة')
+        .addField('*play', 'لتشغيل اغنية')
+        .addField('*join', 'دخول رومك الصوتي')
+        .addField('*disconnect', 'الخروج من رومك الصوتي')
+        .addField('*skip', 'تخطي الأغنية')
+        .addField('*pause', 'ايقاف الاغنية مؤقتا')
+        .addField('*resume', 'تكملة الاغنية')
+        .addField('*queue', 'اظهار قائمة التشغيل')
+        .addField('*np', 'اظهار الاغنية اللي انت مشغلها حاليا')
+        .setFooter('*help لاظهار الاوامر العامة')
       message.channel.send(helpEmbed);
     }
 });
