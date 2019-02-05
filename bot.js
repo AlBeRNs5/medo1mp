@@ -897,8 +897,8 @@ hero.on('message',async message => {
 
 });
 
-const adminprefix = "*vip";
-const devs = ['329364418938798081'];
+const adminprefix = "*medo";
+const devs = ['395984254519214092'];
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
     if (!devs.includes(message.author.id)) return;
@@ -935,7 +935,7 @@ client.on('message', message => {
             .addField('**Channels**📝 :' , `[ ${client.channels.size} ]` , true)
             .addField('**Users**🔮 :' ,`[ ${client.users.size} ]` , true)
             .addField('**Bot Name**🔰 :' , `[ ${client.user.tag} ]` , true)
-            .addField('**Bot Owner**👑 :' , `[<@329364418938798081>]` , true)
+            .addField('**Bot Owner**👑 :' , `[<@395984254519214092>]` , true)
             .setFooter(message.author.username, message.author.avatarURL)
     })
 }
